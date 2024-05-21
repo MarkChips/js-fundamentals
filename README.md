@@ -1,23 +1,11 @@
 # JS Fun-damentals
 
-## Quickstart
+## Where to find my work
 
-1. **Fork** this repository (important)
-2. **Clone** it to your machine
+All my answers to the challenges can be found in the folder 'src'. At the time of writing this, I am still working on challenge 10 and 11.
 
-```sh
-$ git clone git@github.com:digital-futures-academy/js-fundamentals.git
-$ cd js-fundamentals
-```
-3. Complete the first challenge!
-4. For each successive challenge, add files in the `src` directory.
-5. **Stage** your changes `git add <path to file>`
-6. **commit** your changes `git commit -m <commit message>`
-7. Then **push** your changes to your forked repository `git push origin main`
-8. [Open a PR](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) back to this repository
+The actual challenge questions can be found in the 'challenges' folder.
 
-NB: Only open 1 Pull Request. Give your PR a title that is your first name and last name. Your PR will automatically update as you push more work to your repository - so you should only ever need to have 1 PR for all the work you do for these exercises.
+# Technologies used:
 
-Then repeat steps 4-6 for each challenge!
-
-The directory `challenges` holds files challenges 1-11, named accordingly. The directory `src` is currently mostly empty - this is where you should add files with the implementation of each challenge. Sometimes you might need to copy paste your previous challenge so you can extend it. Therefore there should be a `src` file for every challenge file. Eg: `challenges/challenge3.md` and `src/challenge3.js`.
+JavaScript

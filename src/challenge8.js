@@ -1,3 +1,11 @@
+/* When I got home today, there was a note in my pocket with a ton of numbers on it, and the number 4771 circled! I think someone's left me an encrypted message!
+I need a way to decrypt a letter-number encrypted string given a key!
+
+Your implementation should
+- Be well-encapsulated using a `class` called `LetterNumber`
+- Use this [character set](https://gist.github.com/dearshrewdwit/691c71616995ad2430ab309aa9998745)
+- Be agnostic to the actual values - the character values might change
+*/
 class LetterNumber {
     characters = ` abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()-_=+[]{};:\'"\\|,.<>/?\`~§±1234567890`;
     twoDigit(number) {
