@@ -11,8 +11,8 @@ Your implementation should
 class LetterNumber {
     characters = ` abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()-_=+[]{};:\'"\\|,.<>/?\`~§±1234567890`;
     twoDigit(number) {
-        const modulo = number % 100;
-        return modulo.toString().padStart(2, '0');
+        const modulo = String(number % 100);
+        return modulo.padStart(2, '0');
     }
     encrypt(str, n) {
         let encryptedStr = '';
@@ -22,7 +22,7 @@ class LetterNumber {
         return encryptedStr;
     }
     splitStringIntoPairs(inputString) {
-        return inputString.toString().match(/.{1,2}/g);
+        return String(inputString).match(/.{1,2}/g);
     }
     decrypt(encryption, key) {
         const modulo = key % 100;

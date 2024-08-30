@@ -18,8 +18,8 @@ letterNumber.encrypt("Hi, Ed!", 302) // "37128003340756"
 
 class LetterNumber {
     twoDigit(number) {
-        const modulo = number % 100;
-        return modulo.toString().padStart(2, '0');
+        const modulo = String(number % 100);
+        return modulo.padStart(2, '0');
     }
     encrypt(str, n) {
         const characters = ` abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()-_=+[]{};:\'"\\|,.<>/?\`~§±1234567890`;
