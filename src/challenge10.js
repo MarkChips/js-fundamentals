@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-/* We should be able to speed up encoding and decoding messages if we can run a program directly from the command line!
+/* 
+We should be able to speed up encoding and decoding messages if we can run a program directly from the command line!
 
 The command should take 3 arguments [cipher] [method] [file] and optionally take a [key]
 
@@ -14,11 +15,18 @@ $ ./cipher.js ll enc example.txt
 Using an executable command for a letter-number cipher might look like this:
 ```sh
 $ cipher ln enc example.txt 104
-```*/
+```
 
-// To run, type './challenge10.js ll dec example.txt' in the terminal.
+### Acceptance Criteria
+
+- The result of encryption for a file `example.txt` should create a new file named `example.txt.enc` with the ciphertext
+- The result of decryption for a file `example.txt.enc` should create a new file named `example.txt` with the plaintext
+*/
+
+// To run, type './challenge10.js <ll or ln> <enc or dec> <filename.txt> <optional key>' in the terminal.
 
 const fs = require("fs");
+const path = require("path");
 
 class LetterNumberCipher {
   characters = ` abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()-_=+[]{};:\'"\\|,.<>/?\`~§±1234567890`;
@@ -101,16 +109,19 @@ function main() {
   try {
     const text = fs.readFileSync(file, "utf8");
     let result = "";
+    let outputFile = "";
 
     if (cipherType === "ln") {
       if (!key) {
-        key = 0; // might need to make string
+        key = 0;
       }
       const lnCipher = new LetterNumberCipher();
       if (operation === "enc") {
         result = lnCipher.encrypt(text, parseInt(key));
+        outputFile = `${file}.enc`;
       } else if (operation === "dec") {
         result = lnCipher.decrypt(text, parseInt(key));
+        outputFile = file.replace('.enc', '');
       } else {
         console.error(
           'Invalid operation. Use "enc" for encrypt or "dec" for decrypt.'
@@ -121,8 +132,10 @@ function main() {
       const llCipher = new LetterLetterCipher();
       if (operation === "enc") {
         result = llCipher.encrypt(text);
+        outputFile = `${file}.enc`;
       } else if (operation === "dec") {
         result = llCipher.decrypt(text);
+        outputFile = file.replace('.enc', '');
       } else {
         console.error(
           'Invalid operation. Use "enc" for encrypt or "dec" for decrypt.'
@@ -136,7 +149,8 @@ function main() {
       process.exit(1);
     }
 
-    console.log(result);
+    fs.writeFileSync(outputFile, result);
+    console.log(`Operation completed. Result saved to ${outputFile}`);
   } catch (error) {
     console.error("Error:", error.message);
     process.exit(1);
