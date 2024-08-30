@@ -5,6 +5,7 @@
 "Ed" -> "325"
 "Hi, Ed!" -> "351078132554"
 ``` */
+
 function encrypt(str) {
     const characters = ` abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()-_=+[]{};:\'"\\|,.<>/?\`~§±1234567890`;
     let encryptedStr = "";

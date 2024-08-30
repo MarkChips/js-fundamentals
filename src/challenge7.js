@@ -14,6 +14,8 @@ letterNumber.encrypt("a", 1) // "03"
 letterNumber.encrypt("Ed", 4) // "3609"
 letterNumber.encrypt("Hi, Ed!", 302) // "37128003340756"
 ```*/
+
+
 class LetterNumber {
     twoDigit(number) {
         const modulo = number % 100;
@@ -28,7 +30,9 @@ class LetterNumber {
         return encryptedStr;
     };
 };
+
 const letterNumber = new LetterNumber();
+
 console.log(letterNumber.encrypt("a", 1)); //prints 03
 console.log(letterNumber.encrypt("Ed", 4)); //prints 3609
 console.log(letterNumber.encrypt("Hi, Ed!", 302)); //prints 37128003340756
