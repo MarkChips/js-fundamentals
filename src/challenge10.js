@@ -23,7 +23,7 @@ $ cipher ln enc example.txt 104
 - The result of decryption for a file `example.txt.enc` should create a new file named `example.txt` with the plaintext
 */
 
-// To run, type './secret.js <ll or ln> <enc or dec> <filename.txt> <optional key>' in the terminal.
+// My work is split between this file, and the file 'secret.js found in the main directory. To run, type './secret.js <ll or ln> <enc or dec> <filename.txt> <optional key>' in the terminal.
 
 
 class LetterNumberCipher {

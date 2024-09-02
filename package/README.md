@@ -1,19 +1,3 @@
-# JS Fun-damentals
-
-My very first custom npm package for encryption. This can be installed on any machine (that has node.js) via the terminal. To skip the intro and start reading more about it, including installation, [click here](#secret-cipher-cli).
-
-Contained within this repository are my answers to challenges set by the bootcamp: Digital Futures. The culmination of the challenges enabled me to publish my very first npm package.
-
-## Where to find my work
-
-All my answers to the challenges can be found in the folder ['src'](src).
-
-The actual challenge questions can be found in the ['challenges'](challenges) folder.
-
-## Technologies used:
-
-JavaScript
-
 # Secret Cipher CLI
 
 A command-line tool for encrypting and decrypting text using Letter-Number and Letter-Letter ciphers.

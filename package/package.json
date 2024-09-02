@@ -1,0 +1,23 @@
+{
+  "name": "@mark-chips/secret",
+  "version": "1.0.0",
+  "bin": {
+    "secret": "./index.js"
+  },
+  "description": "Encrypt or decrypt a text file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/MarkChips/js-fundamentals)"
+  },
+  "keywords": [
+    "cipher",
+    "encrypt",
+    "decrypt"
+  ],
+  "author": "Mark Chipperfield",
+  "license": "ISC"
+}
