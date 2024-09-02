@@ -23,10 +23,8 @@ $ cipher ln enc example.txt 104
 - The result of decryption for a file `example.txt.enc` should create a new file named `example.txt` with the plaintext
 */
 
-// To run, type './challenge10.js <ll or ln> <enc or dec> <filename.txt> <optional key>' in the terminal.
+// To run, type './secret.js <ll or ln> <enc or dec> <filename.txt> <optional key>' in the terminal.
 
-const fs = require("fs");
-const path = require("path");
 
 class LetterNumberCipher {
   characters = ` abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()-_=+[]{};:\'"\\|,.<>/?\`~§±1234567890`;
@@ -54,6 +52,7 @@ class LetterNumberCipher {
     return decryption;
   }
 }
+
 
 class LetterLetterCipher {
   characters = [
@@ -96,65 +95,5 @@ class LetterLetterCipher {
   }
 }
 
-function main() {
-  const args = process.argv.slice(2);
-
-  if (args.length < 3) {
-    console.error("Usage: cipher <cipher_type> <operation> <file> [key]");
-    process.exit(1);
-  }
-
-  let [cipherType, operation, file, key] = args;
-
-  try {
-    const text = fs.readFileSync(file, "utf8");
-    let result = "";
-    let outputFile = "";
-
-    if (cipherType === "ln") {
-      if (!key) {
-        key = 0;
-      }
-      const lnCipher = new LetterNumberCipher();
-      if (operation === "enc") {
-        result = lnCipher.encrypt(text, parseInt(key));
-        outputFile = `${file}.enc`;
-      } else if (operation === "dec") {
-        result = lnCipher.decrypt(text, parseInt(key));
-        outputFile = file.replace('.enc', '');
-      } else {
-        console.error(
-          'Invalid operation. Use "enc" for encrypt or "dec" for decrypt.'
-        );
-        process.exit(1);
-      }
-    } else if (cipherType === "ll") {
-      const llCipher = new LetterLetterCipher();
-      if (operation === "enc") {
-        result = llCipher.encrypt(text);
-        outputFile = `${file}.enc`;
-      } else if (operation === "dec") {
-        result = llCipher.decrypt(text);
-        outputFile = file.replace('.enc', '');
-      } else {
-        console.error(
-          'Invalid operation. Use "enc" for encrypt or "dec" for decrypt.'
-        );
-        process.exit(1);
-      }
-    } else {
-      console.error(
-        'Invalid cipher type. Use "ln" for letter-number or "ll" for letter-letter.'
-      );
-      process.exit(1);
-    }
-
-    fs.writeFileSync(outputFile, result);
-    console.log(`Operation completed. Result saved to ${outputFile}`);
-  } catch (error) {
-    console.error("Error:", error.message);
-    process.exit(1);
-  }
-}
-
-main();
+export const lnCipher = new LetterNumberCipher();
+export const llCipher = new LetterLetterCipher();
